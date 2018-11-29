@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+    <!--Spring入门配置=====================-->
+    <!--name  别名， 可以有多个，
+        id 是唯一的 3.1版本之前特殊符号不能使用3.1版本之后可以使用
+        class  类的全路径-->
+    <bean id="userDAO" class="com.li.ren.impl.UserDaoImpl"></bean>
+
+    <!-- ==================setter============ -->
+    
+</beans>
