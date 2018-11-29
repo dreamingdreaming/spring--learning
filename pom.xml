@@ -11,6 +11,7 @@
         <module>spring-day02</module>
         <module>spring-day03</module>
         <module>spring-day04</module>
+        <module>spring-day04(Jdbc模板)</module>
     </modules>
     <dependencies>
         <dependency>
