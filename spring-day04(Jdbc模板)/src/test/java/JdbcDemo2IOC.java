@@ -19,9 +19,17 @@ public class JdbcDemo2IOC {
 
     @Resource(name = "jdbcTemplate")
     private JdbcTemplate jdbcTemplate;
+
+    /*增加操作*/
     @Test
     public void demo02(){
         jdbcTemplate.update("insert into account  values (null ,?,?);","renl03",25000d);
+    }
+    /*查找操作*/
+    @Test
+    public void demo03(){
+        String name = jdbcTemplate.queryForObject("select name from account where id = ?", String.class, 1);
+        System.out.println(name);
     }
 
 }

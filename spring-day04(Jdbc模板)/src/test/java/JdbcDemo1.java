@@ -22,7 +22,6 @@ public class JdbcDemo1 {
     /*创建jdbc模板*/
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
     jdbcTemplate.update("insert into account values (null ,?,?)","renl",10000d);
-
 }
 
 }
