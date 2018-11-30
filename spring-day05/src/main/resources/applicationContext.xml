@@ -8,13 +8,13 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
     <context:property-placeholder location="classpath:jdbc.properties"/>
     <!--配置Service-->
-    <bean id="accountService" class="com.ren.li.impl.AccountServiceImpl">
+    <bean id="accountService" class="com.ren.li.demo01.impl.AccountServiceImpl">
         <property name="accountDao" ref="accountDao"/>
         <!--注入事务管理的模板-->
         <property name="transactionTemplate" ref="transactionTemplate"/>
     </bean>
     <!--配置Dao-->
-    <bean id="accountDao" class="com.ren.li.impl.AccountDaoImpl">
+    <bean id="accountDao" class="com.ren.li.demo01.impl.AccountDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
     <!--配置spring的内置连接池-->

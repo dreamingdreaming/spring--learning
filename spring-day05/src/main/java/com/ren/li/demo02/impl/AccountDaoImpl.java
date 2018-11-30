@@ -1,8 +1,6 @@
-package com.ren.li.impl;
+package com.ren.li.demo02.impl;
 
-import com.ren.li.dao.AccountDao;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
+import com.ren.li.demo01.dao.AccountDao;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 /**
@@ -13,11 +11,6 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
  */
 
 public class AccountDaoImpl extends JdbcDaoSupport implements AccountDao {
-    /*    private JdbcTemplate jdbcTemplate;
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }*/
-    /*jdbc模板*/
     public void outMoney(String from, Double money) {
         this.getJdbcTemplate().update("update  account set money = money - ? where  name  = ?",money,from);
     }

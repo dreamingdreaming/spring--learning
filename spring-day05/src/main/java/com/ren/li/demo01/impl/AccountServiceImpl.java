@@ -1,7 +1,7 @@
-package com.ren.li.impl;
+package com.ren.li.demo01.impl;
 
-import com.ren.li.dao.AccountDao;
-import com.ren.li.service.AccountService;
+import com.ren.li.demo01.dao.AccountDao;
+import com.ren.li.demo01.service.AccountService;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;
 import org.springframework.transaction.support.TransactionTemplate;

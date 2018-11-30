@@ -1,4 +1,4 @@
-package com.ren.li.service;
+package com.ren.li.demo01.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

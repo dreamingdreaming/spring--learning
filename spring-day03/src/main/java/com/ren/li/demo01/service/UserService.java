@@ -1,4 +1,4 @@
-package com.ren.li.service;
+package com.ren.li.demo01.service;
 
 public interface UserService {
     public void save();
