@@ -17,7 +17,6 @@ public class AccountServiceImplTest {
     private AccountService accountService;
     @Test
     public void transper() {
-        accountService.transper("renl","renl02",2000d);
-
+        accountService.transper("renl02","renl",2000d);
     }
 }

@@ -2,6 +2,9 @@ package com.ren.li.impl;
 
 import com.ren.li.dao.AccountDao;
 import com.ren.li.service.AccountService;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.TransactionCallbackWithoutResult;
+import org.springframework.transaction.support.TransactionTemplate;
 
 /**
  * 转账的实现类
@@ -18,13 +21,26 @@ public class AccountServiceImpl implements AccountService {
      *
      * */
     private AccountDao accountDao;
+    /**
+     *注入事务管理的模板
+     *
+     * */
+    private TransactionTemplate transactionTemplate;
+    public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
+        this.transactionTemplate = transactionTemplate;
+    }
 
     public void setAccountDao(AccountDao accountDao) {
         this.accountDao = accountDao;
     }
 
-    public void transper(String from, String to, Double money) {
-        accountDao.outMoney(from,money);
-        accountDao.inMoney(to,money);
+    public void transper(final String from, final String to, final Double money) {
+        transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+            @Override
+            protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
+                accountDao.outMoney(from,money);
+                accountDao.inMoney(to,money);
+            }
+        });
     }
 }
