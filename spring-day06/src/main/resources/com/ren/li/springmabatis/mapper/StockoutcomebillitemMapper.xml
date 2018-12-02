@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ren.li.springmabatis.mapper.StockoutcomebillitemMapper" >
+  <resultMap id="BaseResultMap" type="com.ren.li.springmabatis.pojo.Stockoutcomebillitem" >
+    <id column="sobtid" property="sobtid" jdbcType="INTEGER" />
+    <result column="sobtname" property="sobtname" jdbcType="VARCHAR" />
+    <result column="sobid" property="sobid" jdbcType="INTEGER" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from stockoutcomebillitem
+    where sobtid = #{sobtid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ren.li.springmabatis.pojo.Stockoutcomebillitem" >
+    insert into stockoutcomebillitem (sobtid, sobtname, sobid, 
+      pid)
+    values (#{sobtid,jdbcType=INTEGER}, #{sobtname,jdbcType=VARCHAR}, #{sobid,jdbcType=INTEGER}, 
+      #{pid,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ren.li.springmabatis.pojo.Stockoutcomebillitem" >
+    update stockoutcomebillitem
+    set sobtname = #{sobtname,jdbcType=VARCHAR},
+      sobid = #{sobid,jdbcType=INTEGER},
+      pid = #{pid,jdbcType=INTEGER}
+    where sobtid = #{sobtid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select sobtid, sobtname, sobid, pid
+    from stockoutcomebillitem
+    where sobtid = #{sobtid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select sobtid, sobtname, sobid, pid
+    from stockoutcomebillitem
+  </select>
+</mapper>

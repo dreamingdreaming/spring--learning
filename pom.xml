@@ -13,6 +13,7 @@
         <module>spring-day04</module>
         <module>spring-day04(Jdbc模板)</module>
         <module>spring-day05</module>
+        <module>spring-day06（spring和mybatis的整合）</module>
     </modules>
     <dependencies>
         <dependency>

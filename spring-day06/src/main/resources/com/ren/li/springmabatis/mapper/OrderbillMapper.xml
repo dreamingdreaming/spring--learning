@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ren.li.springmabatis.mapper.OrderbillMapper" >
+  <resultMap id="BaseResultMap" type="com.ren.li.springmabatis.pojo.Orderbill" >
+    <id column="oid" property="oid" jdbcType="INTEGER" />
+    <result column="oname" property="oname" jdbcType="VARCHAR" />
+    <result column="sid" property="sid" jdbcType="INTEGER" />
+    <result column="eid" property="eid" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from orderbill
+    where oid = #{oid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ren.li.springmabatis.pojo.Orderbill" >
+    insert into orderbill (oid, oname, sid, 
+      eid)
+    values (#{oid,jdbcType=INTEGER}, #{oname,jdbcType=VARCHAR}, #{sid,jdbcType=INTEGER}, 
+      #{eid,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ren.li.springmabatis.pojo.Orderbill" >
+    update orderbill
+    set oname = #{oname,jdbcType=VARCHAR},
+      sid = #{sid,jdbcType=INTEGER},
+      eid = #{eid,jdbcType=INTEGER}
+    where oid = #{oid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select oid, oname, sid, eid
+    from orderbill
+    where oid = #{oid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select oid, oname, sid, eid
+    from orderbill
+  </select>
+</mapper>

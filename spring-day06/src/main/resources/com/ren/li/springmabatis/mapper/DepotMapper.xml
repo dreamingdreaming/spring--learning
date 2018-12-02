@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ren.li.springmabatis.mapper.DepotMapper" >
+  <resultMap id="BaseResultMap" type="com.ren.li.springmabatis.pojo.Depot" >
+    <id column="did" property="did" jdbcType="INTEGER" />
+    <result column="dname" property="dname" jdbcType="VARCHAR" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from depot
+    where did = #{did,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ren.li.springmabatis.pojo.Depot" >
+    insert into depot (did, dname)
+    values (#{did,jdbcType=INTEGER}, #{dname,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ren.li.springmabatis.pojo.Depot" >
+    update depot
+    set dname = #{dname,jdbcType=VARCHAR}
+    where did = #{did,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select did, dname
+    from depot
+    where did = #{did,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select did, dname
+    from depot
+  </select>
+</mapper>

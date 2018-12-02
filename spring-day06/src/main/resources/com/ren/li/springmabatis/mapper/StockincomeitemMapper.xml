@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ren.li.springmabatis.mapper.StockincomeitemMapper" >
+  <resultMap id="BaseResultMap" type="com.ren.li.springmabatis.pojo.Stockincomeitem" >
+    <id column="sibtid" property="sibtid" jdbcType="INTEGER" />
+    <result column="sibtname" property="sibtname" jdbcType="VARCHAR" />
+    <result column="sibid" property="sibid" jdbcType="INTEGER" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from stockincomeitem
+    where sibtid = #{sibtid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ren.li.springmabatis.pojo.Stockincomeitem" >
+    insert into stockincomeitem (sibtid, sibtname, sibid, 
+      pid)
+    values (#{sibtid,jdbcType=INTEGER}, #{sibtname,jdbcType=VARCHAR}, #{sibid,jdbcType=INTEGER}, 
+      #{pid,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.ren.li.springmabatis.pojo.Stockincomeitem" >
+    update stockincomeitem
+    set sibtname = #{sibtname,jdbcType=VARCHAR},
+      sibid = #{sibid,jdbcType=INTEGER},
+      pid = #{pid,jdbcType=INTEGER}
+    where sibtid = #{sibtid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select sibtid, sibtname, sibid, pid
+    from stockincomeitem
+    where sibtid = #{sibtid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select sibtid, sibtname, sibid, pid
+    from stockincomeitem
+  </select>
+</mapper>
